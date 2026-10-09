@@ -4,12 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>for my babygirl (cutest one in the world called sarujan my jujujuma💝</title>
+<title>for my babygirl 💝</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -66,7 +68,10 @@ h2 {
   color: #a44268;
 }
 
-p { font-size: 15px; line-height: 1.9; }
+p {
+  font-size: 15px;
+  line-height: 1.9;
+}
 
 .divider {
   color: #d78ba8;
@@ -103,10 +108,16 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: transform .2s, background .2s;
+  overflow-wrap: anywhere;
 }
 
-button:active { transform: scale(.96); }
-button:hover { background: #ffe1eb; }
+button:active {
+  transform: scale(.96);
+}
+
+button:hover {
+  background: #ffe1eb;
+}
 
 .primary {
   color: white;
@@ -115,7 +126,9 @@ button:hover { background: #ffe1eb; }
   box-shadow: 0 5px 15px #d9669140;
 }
 
-.primary:hover { background: #b84976; }
+.primary:hover {
+  background: #b84976;
+}
 
 .tiny {
   font-size: 12px;
@@ -125,6 +138,7 @@ button:hover { background: #ffe1eb; }
 #letter {
   display: none;
   width: 100%;
+  height: auto;
   margin-top: 18px;
   border-radius: 12px;
   border: 2px solid #f5c5d7;
@@ -139,7 +153,7 @@ button:hover { background: #ffe1eb; }
 
   <h1>I made something for uuuu 😍😍😍😝😝but u gotttaaaa finish these qnsss first my babygirl</h1>
 
-  <div class="divider"> ♡ 🥀</div>
+  <div class="divider">♡ 🥀</div>
 
   <button class="primary" onclick="startQuiz()">
     OKAYYYYY ready aaahahahha na ready tha varava anna na erangi varavaaa towww👀
@@ -156,7 +170,10 @@ const questions = [
   },
   {
     q: "2. am I funny",
-    a: ["Yes", "yes baby ur funniest oat and ill let u crack me everyday js caus ur the funniest person ik and im in aw at evlo funny u are da ma"]
+    a: [
+      "Yes",
+      "yes baby ur funniest oat and ill let u crack me everyday js caus ur the funniest person ik and im in aw at evlo funny u are da ma"
+    ]
   },
   {
     q: "3. wil u let rika hit?",
@@ -180,7 +197,10 @@ const questions = [
   },
   {
     q: "Who owns your heart?",
-    a: ["Rika 💝", "My one and only Rika my baby whos v kind and so funny the funniest person in this world even the funniest oatnnocap💝💝💝"]
+    a: [
+      "Rika 💝",
+      "My one and only Rika my baby whos v kind and so funny the funniest person in this world even the funniest oatnnocap💝💝💝"
+    ]
   }
 ];
 
@@ -251,7 +271,6 @@ function showFinal() {
   `;
 }
 
-
 function revealLetter() {
   document.getElementById("app").innerHTML = `
     <div class="sticker">💝</div>
@@ -264,7 +283,11 @@ function revealLetter() {
          src="IMG-20261009-WA0002.jpg"
          alt="🤤my only baby sarujan chellam ku">
 
-    <audio id="song" src="radhima.mp3" loop></audio>
+    <audio id="song" src="radhima.mp3" loop preload="auto"></audio>
+
+    <button class="primary" id="playButton" type="button">
+      better than pee abhyankar atp😛💗
+    </button>
 
     <button class="primary" onclick="showEnd()">
       SOOOOOOO 👀
@@ -282,47 +305,20 @@ function revealLetter() {
   };
 
   const song = document.getElementById("song");
+  const playButton = document.getElementById("playButton");
 
-const playButton = document.createElement("button");
-playButton.className = "primary";
-playButton.textContent = "playing our lovely song radhima 💕💌🤔😍😛👀🥺😅😥🥱💗";
-
-playButton.onclick = async () => {
-  try {
-    await song.play();
-    playButton.textContent = "better than pee abhyankar😍🔥❤️‍🔥";
-  } catch (error) {
-    playButton.textContent = "tap ts if ts not working 🥹✌️🥀";
-  }
-};
-
-document.getElementById("app").appendChild(playButton);
-}
-
-  document.getElementById("app").innerHTML = `
-    <div class="sticker">💝</div>
-
-    <h1>for my pondati😍🤤</h1>
-
-    <p>something for my cutest baby girl in the entireeeeeeee world😝😝😝🔥👀</p>
-
-    <img id="letter"
-         src="IMG-20261009-WA0002.jpg"
-         alt="wrote ts w finger so handwriting so aah but adjust plss🥹🥀">
-
-    <button class="primary" onclick="showEnd()">
-      SO NOWWW👀
-    </button>
-  `;
-
-  const img = document.getElementById("letter");
-
-  img.onload = () => {
-    img.style.display = "block";
-  };
-
-  img.onerror = () => {
-    img.style.display = "none";
+  playButton.onclick = async () => {
+    try {
+      if (song.paused) {
+        await song.play();
+        playButton.textContent = "PLAYING NOW 💗🎶";
+      } else {
+        song.pause();
+        playButton.textContent = "RESUME OUR VOICE MESSAGE 🎧💗";
+      }
+    } catch (error) {
+      playButton.textContent = "COULDN'T PLAY — TAP TO TRY AGAIN 🎧";
+    }
   };
 }
 
