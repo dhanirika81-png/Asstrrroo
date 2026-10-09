@@ -283,20 +283,20 @@ function revealLetter() {
 
   const song = document.getElementById("song");
 
-  song.play().catch(() => {
-    const playButton = document.createElement("button");
-    playButton.className = "primary";
-    playButton.textContent = " 😝😝🤤🤤 radhimaaa";
-    playButton.onclick = () => {
-      song.play();
-      playButton.textContent = "better than sai abhyankar even😛😛🤘";
-    };
+const playButton = document.createElement("button");
+playButton.className = "primary";
+playButton.textContent = "playing our lovely song radhima 💕💌🤔😍😛👀🥺😅😥🥱💗";
 
-    document.getElementById("app").insertBefore(
-      playButton,
-      document.getElementById("app").lastElementChild
-    );
-  });
+playButton.onclick = async () => {
+  try {
+    await song.play();
+    playButton.textContent = "better than pee abhyankar😍🔥❤️‍🔥";
+  } catch (error) {
+    playButton.textContent = "tap ts if ts not working 🥹✌️🥀";
+  }
+};
+
+document.getElementById("app").appendChild(playButton);
 }
 
   document.getElementById("app").innerHTML = `
